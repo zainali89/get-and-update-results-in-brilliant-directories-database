@@ -1,0 +1,16 @@
+// fetching data
+$myquery = mysql(brilliantDirectories::getDatabaseConfiguration('database'),
+"select users_data.user_id, users_data.address1, users_data.city, users_data.state_ln
+from users_data
+where users_data.lat = ''"); 
+
+while($myresult = mysql_fetch_array($myquery)) {
+}
+
+
+//updating data
+$result = mysql(brilliantDirectories::getDatabaseConfiguration('database'),"
+UPDATE
+`users_data`
+SET
+lat = ".$lat.", lon = ".$lon." WHERE user_id = ".$myresult['user_id'] ); 
